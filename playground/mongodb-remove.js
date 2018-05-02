@@ -8,25 +8,39 @@ MongoClient.connect('mongodb://localhost:27017/TodoDB', (err, db) => {
         return console.log('Unable to connect to MongoDB server');
     }
     console.log('Connected to MongoDB server');
-    db.collection('Todo').insertOne({
-        text: 'Task 2',
-        completed: true
-    }, (err, result) => {
-        if(err) {
-            return console.log('Unable to insert todo', err);
-        }
-        console.log(JSON.stringify(result.ops, undefined, 2));
+    
+    //deleteMany
+    // db.collection('Todo').deleteMany({
+    //     text: 'Task 5'
+    // }).then((result) => {
+    //     console.log(result);
+    // });
+
+    //deleteOne
+    // db.collection('Todo').deleteOne({
+    //     text: 'Task 5'
+    // }).then((result) => {
+    //     console.log(result);
+    // });
+
+    //findOneAndDelete
+    // db.collection('Todo').findOneAndDelete({
+    //     text: 'Task 4'
+    // }).then((result) => {
+    //     console.log(JSON.stringify(result, undefined, 2));
+    // });
+    
+    // db.collection('User').deleteMany({
+    //     name: 'Abhinav Kumar'
+    // }).then((result) => {
+    //     console.log(JSON.stringify(result.result, undefined, 2));
+    // });
+
+    db.collection('User').findOneAndDelete({
+        _id: new ObjectID('5ae801fa8b48c340ee907bf4')
+    }).then((result) => {
+        console.log(JSON.stringify(result, undefined, 2));
     });
 
-    // db.collection('User').insertOne({
-    //     name: 'Abhinav Kumar',
-    //     age: 25,
-    //     location: 'Bangalore, Karnataka'
-    // }, (err, result) => {
-    //     if(err) {
-    //         return console.log('Unable to insert todo', err);
-    //     }
-    //     console.log(JSON.stringify(result.ops, undefined, 2));
-    // });
-    db.close();
+    // db.close();
 });

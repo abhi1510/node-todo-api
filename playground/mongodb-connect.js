@@ -9,7 +9,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoDB', (err, db) => {
     }
     console.log('Connected to MongoDB server');
     db.collection('Todo').insertOne({
-        text: 'Task 2',
+        text: 'Task 5',
         completed: true
     }, (err, result) => {
         if(err) {

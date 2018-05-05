@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const express = require('express');
 const {ObjectID} = require('mongodb');
 const bodyParser = require('body-parser');
@@ -43,6 +44,11 @@ app.get('/todos/:id', (req, res) => {
         res.status(400).send();    
     });
 });
+
+app.patch('/todos/:id', (req, res) => {
+    var id = req.params.id;
+    
+})
 
 app.delete('/todos/:id', (req, res) => {
     var id = req.params.id;
